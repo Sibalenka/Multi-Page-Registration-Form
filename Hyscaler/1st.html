@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+	form{
+	width: 50%;
+	position: absolute;
+	left: 27%;
+	}
+
+        .main {
+            margin: 0 auto;
+            width: 50%;
+            max-width: 600px;
+            background-color: rgb(138, 247, 247);
+        }
+
+        div {
+            margin-bottom: 8px;
+            padding: 2px;
+        }
+
+        .btn {
+            text-align: center;
+        }
+
+        .btn1 {
+            width: 50px;
+            height: 25px;
+            border-radius: 50px;
+            background-color: rgb(30, 210, 23);
+        }
+
+        .date input,
+        .email input,
+        .nationality input,
+        .address1 input,
+        .telephone-home input,
+        .telephone-mobile input {
+            width: 95%;
+        }
+
+        label.required::after {
+            content: '*';
+            color: red;
+        }
+
+    </style>
+</head>
+
+<body>
+    <form id="registrationForm">
+        <div class="main">
+            <h2>College Registration Form</h2>
+            <h5>Thank you for applying to our college. Please fill in the form below to complete the registrationprocess for admission.</h5>
+            <div class="name">
+                <label for="firstname" class="required">Name:</label>
+                <div class="name2">
+                    <input type="text" id="firstname" name="firstname" pattern="[A-Za-z]+" placeholder="First" required />
+                    <input type="text" id="lastname" name="lastname" pattern="[A-Za-z]+" placeholder="Last" required />
+                </div>
+            </div>
+            <div class="date">
+                <label for="dob" class="required">Date of Birth:</label>
+                <div class="date1">
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+            </div>
+            <div class="email">
+                <label for="email" class="required">Email:</label>
+                <div class="email1">
+                    <input type="email" id="email" name="email" required>
+                </div>
+            </div>
+            <div class="father">
+                <label for="fatherName" class="required">Father's Name:</label>
+                <div class="father1">
+                    <input type="text" id="fatherFirstname" name="fatherFirstname" pattern="[A-Za-z]+" placeholder="First" required />
+                    <input type="text" id="fatherLastname" name="fatherLastname" pattern="[A-Za-z]+" placeholder="Last" required />
+                </div>
+            </div>
+            <div class="mother">
+                <label for="motherName" class="required">Mother's Name:</label>
+                <div class="mother1">
+                    <input type="text" id="motherFirstname" name="motherFirstname" pattern="[A-Za-z]+" placeholder="First" required />
+                    <input type="text" id="motherLastname" name="motherLastname" pattern="[A-Za-z]+" placeholder="Last" required />
+                </div>
+                <div class="gender">
+                    <label class="required">Gender:</label>
+                    <div class="gender1">
+                        <input type="radio" id="genderM" name="gender" value="male" required>
+                        <label for="genderM">M</label>
+                    </div>
+                    <div class="gender2">
+                        <input type="radio" id="genderF" name="gender" value="female" required>
+                        <label for="genderF">F</label>
+                    </div>
+                </div>
+                <div class="nationality">
+                    <label for="nationality" class="required">Nationality:</label>
+                    <div class="nationality1">
+                        <input type="text" id="nationality" name="nationality" pattern="[A-Za-z]+" required>
+                    </div>
+                </div>
+                <div class="home">
+                    <label class="required">Home Address:</label>
+                    <div class="address1">
+                        <input type="text" id="streetAddress" name="streetAddress" placeholder="Street Address">
+                    </div>
+                    <div class="address2">
+                        <input type="text" id="city" name="city" placeholder="City" pattern="[A-Za-z]+" required />
+                        <input type="text" id="country" name="country" placeholder="Country" pattern="[A-Za-z]+" required />
+                    </div>
+                </div>
+                <div class="telephone-home">
+                    <label for="telephoneHome" class="required">Telephone-Home:</label>
+                    <div class="telephone-home1">
+                        <input type="tel" id="telephoneHome" name="telephoneHome" pattern="[0-9]{4}[0-9]{6}" placeholder="### ### ####">
+                    </div>
+                </div>
+                <div class="telephone-mobile">
+                    <label for="telephoneMobile" class="required">Telephone-Mobile:</label>
+                    <div class="telephone-mobile1">
+                        <input type="tel" id="telephoneMobile" name="telephoneMobile" pattern="[0-9]{4}[0-9]{6}" placeholder="### ### ####">
+                    </div>
+                </div>
+                <div class="feedback">
+                    <label for="feedback" class="required">In a few sentences, write down why do you want to become a student of our
+                        College</label>
+                    <div class="feedback1">
+                        <textarea name="feedback" id="feedback" cols="45" rows="5"></textarea>
+                    </div>
+                </div>
+                <div class="signature">
+                    <label for="signature" class="required">Electronic Signature (Parent/Guardian):</label>
+                    <div class="sign1">
+                        <textarea name="signature" id="signature" cols="45" rows="2"></textarea>
+                    </div>
+                </div>
+                <div class="btn">
+                    <input class="btn1" type="submit" value="Next">
+                </div>
+            </div>
+    </form>
+    <script>
+        const form = document.getElementById("registrationForm");
+        form.addEventListener("submit", function (event) {
+            event.preventDefault(); //nextpage
+            window.location.href = "2nd.html";
+        });
+    </script>
+</body>
+
+</html>

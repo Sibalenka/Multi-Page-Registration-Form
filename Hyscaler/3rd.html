@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Document Upload Page</title>
+  <style>
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input[type="file"] {
+      margin-top: 5px;
+    }
+
+    .main {
+      margin: 0 auto;
+      width: 90%;
+      max-width: 600px;
+      background-color: rgb(138, 247, 247);
+      padding: 10px;
+    }
+
+    .btn {
+      text-align: center;
+    }
+
+    .btn1 {
+      width: 90px;
+      border-radius: 50px;
+      background-color: rgb(30, 210, 23);
+    }
+  </style>
+</head>
+
+<body>
+
+  <form id="uploadForm">
+    <div class="main">
+      <h1>Document Upload Page</h1>
+      <label for="passport">Recent Passport Size Photograph:</label>
+      <input type="file" id="passport" accept="image/*" required>
+
+      <label for="hsc">HSC Mark Sheet: image, PDF, or docs size less than 4MB</label>
+      <input type="file" id="hsc" accept="image/*, .pdf, .doc, .docx" required>
+
+      <label for="ssc">SSC Mark Sheet: image, PDF, or docs size less than 4MB</label>
+      <input type="file" id="ssc" accept="image/*, .pdf, .doc, .docx" required>
+
+      <label for="semester">All Semesters Mark Sheet (PDF or Docs):</label>
+      <input type="file" id="semester" accept=".pdf, .doc, .docx" required>
+      
+    <div class="btn">
+      <input class="btn1" type="submit" onclick="validateSize()" value="Upload">
+    </div>
+  </form>
+
+  <script>
+    document.getElementById("uploadForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      var passportFile = document.getElementById("passport").files[0];
+      var hscFile = document.getElementById("hsc").files[0];
+      var sscFile = document.getElementById("ssc").files[0];
+      var semesterFile = document.getElementById("semester").files[0];
+
+      var maxSize = 4 * 1024 * 1024;
+
+      if (passportFile && passportFile.size > maxSize) {
+        alert("Recent Passport Size Photograph exceeds the maximum allowed size of 4MB.");
+        return;
+      }
+
+      if (hscFile && hscFile.size > maxSize) {
+        alert("HSC Mark Sheet exceeds the maximum allowed size of 4MB.");
+        return;
+      }
+
+      if (sscFile && sscFile.size > maxSize) {
+        alert("SSC Mark Sheet exceeds the maximum allowed size of 4MB.");
+        return;
+      }
+
+      if (semesterFile && semesterFile.size > maxSize) {
+        alert("All Semesters Mark Sheet exceeds the maximum allowed size of 4MB.");
+        return;
+      }
+
+      document.getElementById("uploadForm").reset();
+      displayAlert();
+
+      function displayAlert() {
+        alert("Form submitted successfully!");
+        window.location.href = "1st.html";
+      }
+    });
+
+
+  </script>
+</body>
+
+</html>
